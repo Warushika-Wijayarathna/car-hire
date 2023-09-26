@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="carForm" prefHeight="800.0" prefWidth="1091.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.carhire.controller.CarFormController">
+   <children>
+      <Pane layoutX="14.0" layoutY="14.0" prefHeight="127.0" prefWidth="1065.0" style="-fx-background-color: 27005D;">
+         <children>
+            <Label alignment="CENTER" layoutX="4.0" prefHeight="127.0" prefWidth="1058.0" style="-fx-background-color: #130f40;" text="Cars" textFill="WHITE">
+               <font>
+                  <Font name="Dyuthi Regular" size="76.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="112.0" fitWidth="219.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Images/white-car-icon-9.jpg" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+         </children>
+      </Pane>
+      <Group layoutX="47.0" layoutY="167.0" />
+      <Label fx:id="carLabel" layoutX="68.0" layoutY="229.0" prefHeight="34.0" prefWidth="219.0" text="Car Id" />
+      <TextField fx:id="carIdText" layoutX="287.0" layoutY="229.0" prefHeight="34.0" prefWidth="181.0" />
+      <Label fx:id="plateLabel" layoutX="68.0" layoutY="263.0" prefHeight="34.0" prefWidth="219.0" text="Plate No." />
+      <TextField fx:id="plateText" layoutX="287.0" layoutY="263.0" prefHeight="34.0" prefWidth="344.0" />
+      <Label fx:id="brandLabel" layoutX="68.0" layoutY="297.0" prefHeight="34.0" prefWidth="219.0" text="Brand" />
+      <TextField fx:id="brandText" layoutX="287.0" layoutY="297.0" prefHeight="34.0" prefWidth="344.0" />
+      <Label fx:id="modelLabel" layoutX="68.0" layoutY="331.0" prefHeight="34.0" prefWidth="219.0" text="Model" />
+      <TextField fx:id="modelText" layoutX="287.0" layoutY="331.0" prefHeight="34.0" prefWidth="181.0" />
+      <Label fx:id="yearLabel1" layoutX="68.0" layoutY="365.0" prefHeight="34.0" prefWidth="219.0" text="Year" />
+      <TextField fx:id="yearText" layoutX="287.0" layoutY="365.0" prefHeight="34.0" prefWidth="181.0" />
+      <Label fx:id="ppdayLabel" layoutX="68.0" layoutY="399.0" prefHeight="34.0" prefWidth="219.0" text="Price per day" />
+      <TextField fx:id="ppdayText" layoutX="287.0" layoutY="399.0" prefHeight="34.0" prefWidth="181.0" />
+      <TableView fx:id="carTable" layoutX="49.0" layoutY="439.0" prefHeight="291.0" prefWidth="996.0">
+         <columns>
+            <TableColumn prefWidth="75.0" text="C1" />
+            <TableColumn prefWidth="75.0" text="C2" />
+         </columns>
+      </TableView>
+      <Button fx:id="carBtnClick" layoutX="928.0" layoutY="738.0" mnemonicParsing="false" onAction="#saveCar" prefHeight="52.0" prefWidth="117.0" style="-fx-background-color: #7ed6df;" text="Save">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="backBtn" layoutX="33.0" layoutY="164.0" mnemonicParsing="false" onAction="#backBtnClick" prefHeight="56.0" prefWidth="59.0" style="-fx-background-color: #7ed6df;">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <graphic>
+            <ImageView fitHeight="56.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/Praveen-Minimal-Outline-Back.512.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</Pane>
