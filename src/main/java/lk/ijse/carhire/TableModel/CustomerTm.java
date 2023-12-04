@@ -1,14 +1,13 @@
-package lk.ijse.carhire.dto;
+package lk.ijse.carhire.TableModel;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
-@ToString
 @Data
-public class CustomerDto {
+public class CustomerTm {
     private int id;
     private String address;
     private String email;

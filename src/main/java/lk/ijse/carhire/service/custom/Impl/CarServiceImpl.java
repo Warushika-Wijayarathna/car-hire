@@ -2,11 +2,14 @@ package lk.ijse.carhire.service.custom.Impl;
 
 import lk.ijse.carhire.dao.DaoFactory;
 import lk.ijse.carhire.dao.custom.CarDao;
+import lk.ijse.carhire.dto.CarCategoryDto;
 import lk.ijse.carhire.dto.CarDto;
+import lk.ijse.carhire.entity.CarCategoryEntity;
 import lk.ijse.carhire.entity.CarEntity;
 import lk.ijse.carhire.service.custom.CarService;
 
 import javax.swing.JOptionPane;
+import java.util.ArrayList;
 import java.util.List;
 
 public class CarServiceImpl implements CarService {
@@ -21,7 +24,7 @@ public class CarServiceImpl implements CarService {
             entity.setBrand(carDto.getBrand());
             entity.setModel(carDto.getModel());
             entity.setYear(carDto.getYear());
-            entity.setType(carDto.getType());
+            entity.setCarCategoryEntity(carDto.getCarCategoryEntity());
             entity.setPriceperday(carDto.getPriceperday());
 
             carDao.add(entity);
@@ -48,7 +51,7 @@ public class CarServiceImpl implements CarService {
             entity.setBrand(carDto.getBrand());
             entity.setModel(carDto.getModel());
             entity.setYear(carDto.getYear());
-            entity.setType(carDto.getType());
+
             entity.setPriceperday(carDto.getPriceperday());
 
             carDao.update(entity);
@@ -68,7 +71,7 @@ public class CarServiceImpl implements CarService {
     public String deleteCar(String id) throws Exception {
         try {
 
-            carDao.delete(id);
+            carDao.delete(Integer.valueOf(id));
 
 
             int choice = JOptionPane.showConfirmDialog(
@@ -95,33 +98,46 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    public CarDto getCar(String id) throws Exception {
+    public CarDto getCar(int id) throws Exception {
         try {
+            CarEntity entity = carDao.get(Integer.parseInt(String.valueOf(id)));
 
-            CarEntity entity = carDao.get(id);
+            if (entity == null) {
+                String errorMessage = "Car with ID " + id + " not found!";
+                JOptionPane.showMessageDialog(null, errorMessage, "Error", JOptionPane.ERROR_MESSAGE);
+                return null;
+            }
 
-
-            CarDto carDto = new CarDto();
-            carDto.setId(entity.getId());
-            carDto.setPlateNo(entity.getPlateNo());
-            carDto.setBrand(entity.getBrand());
-            carDto.setModel(entity.getModel());
-            carDto.setYear(entity.getYear());
-            carDto.setType(entity.getType());
-            carDto.setPriceperday(entity.getPriceperday());
+            CarDto carDto = new CarDto(
+                    entity.getId(),
+                    entity.getBrand(),
+                    entity.getModel(),
+                    entity.getPlateNo(),
+                    entity.getPriceperday(),
+                    entity.getYear(),
+                    entity.getCarCategoryEntity(),
+                    entity.getUpdate(),
+                    entity.getDelete()
+            );
 
             return carDto;
         } catch (Exception e) {
-
             String errorMessage = "Error getting car: " + e.getMessage();
             JOptionPane.showMessageDialog(null, errorMessage, "Error", JOptionPane.ERROR_MESSAGE);
             throw new Exception(errorMessage, e);
         }
     }
 
+
     @Override
     public List<CarDto> getAllCar() throws Exception {
-        return null;
+        ArrayList<CarEntity> carEntities= (ArrayList<CarEntity>) carDao.getAll();
+        ArrayList<CarDto> carDtoArrayList= new ArrayList<>();
+
+        for (CarEntity entity:carEntities){
+            carDtoArrayList.add(new CarDto(entity.getId(), entity.getBrand(), entity.getModel(), entity.getPlateNo(), entity.getPriceperday(), entity.getYear(), entity.getCarCategoryEntity(), entity.getUpdate(), entity.getDelete()));
+        }
+        return carDtoArrayList;
     }
 }
 

@@ -4,7 +4,9 @@ import javafx.collections.FXCollections;
 import lk.ijse.carhire.dao.DaoFactory;
 import lk.ijse.carhire.dao.custom.CarCategoryDao;
 import lk.ijse.carhire.dto.CarCategoryDto;
+import lk.ijse.carhire.dto.CustomerDto;
 import lk.ijse.carhire.entity.CarCategoryEntity;
+import lk.ijse.carhire.entity.CustomerEntity;
 import lk.ijse.carhire.service.custom.CarCategoryService;
 
 import javax.swing.JOptionPane;
@@ -56,35 +58,14 @@ public class CarCategoryServiceImpl implements CarCategoryService {
     }
 
     @Override
-    public String deleteCarCategory(String id) throws Exception {
-        try {
-            carCategoryDao.delete(id);
-
-            int choice = JOptionPane.showConfirmDialog(
-                    null,
-                    "Are you sure you want to delete the car category with ID: " + id + "?",
-                    "Confirm Deletion",
-                    JOptionPane.YES_NO_OPTION
-            );
-
-            if (choice == JOptionPane.YES_OPTION) {
-                String successMessage = "Car category deleted successfully with ID: " + id;
-                JOptionPane.showMessageDialog(null, successMessage, "Success", JOptionPane.INFORMATION_MESSAGE);
-                return successMessage;
-            } else {
-                return "Car category deletion canceled.";
-            }
-        } catch (Exception e) {
-            String errorMessage = "Error deleting car category: " + e.getMessage();
-            JOptionPane.showMessageDialog(null, errorMessage, "Error", JOptionPane.ERROR_MESSAGE);
-            throw new Exception(errorMessage, e);
-        }
+    public String deleteCarCategory(int id) throws Exception {
+        return carCategoryDao.delete(id) ? "Success" : "Fail";
     }
 
     @Override
     public CarCategoryDto getCarCategory(String id) throws Exception {
         try {
-            CarCategoryEntity entity = carCategoryDao.get(id);
+            CarCategoryEntity entity = carCategoryDao.get(Integer.parseInt(id));
 
             CarCategoryDto carCategoryDto = new CarCategoryDto();
             carCategoryDto.setId(entity.getId());
@@ -100,8 +81,13 @@ public class CarCategoryServiceImpl implements CarCategoryService {
 
     @Override
     public List<CarCategoryDto> getAllCarCategory() throws Exception {
+        ArrayList<CarCategoryEntity>carCategoryEntities= (ArrayList<CarCategoryEntity>) carCategoryDao.getAll();
+        ArrayList<CarCategoryDto> carCategoryDtoArrayList= new ArrayList<>();
 
-        return null;
+        for (CarCategoryEntity entity:carCategoryEntities){
+            carCategoryDtoArrayList.add(new CarCategoryDto(entity.getId(), entity.getType(), entity.getUpdate(), entity.getDelete()));
+        }
+        return carCategoryDtoArrayList;
     }
 }
 

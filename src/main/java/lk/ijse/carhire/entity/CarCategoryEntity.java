@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
@@ -17,7 +18,7 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-public class CarCategoryEntity {
+public class CarCategoryEntity implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="Id", length = 5, nullable = false)
@@ -29,4 +30,12 @@ public class CarCategoryEntity {
     @ToString.Exclude
     @OneToMany(mappedBy = "carCategoryEntity", targetEntity = CarEntity.class)
     private List<CarEntity> carEntities;
+
+    public String getUpdate() {
+        return null;
+    }
+
+    public String getDelete() {
+        return null;
+    }
 }

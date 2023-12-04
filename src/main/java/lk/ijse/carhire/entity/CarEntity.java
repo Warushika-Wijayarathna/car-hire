@@ -35,9 +35,6 @@ public class CarEntity {
     @Column(name="Year", length = 4, nullable = false)
     private int year;
 
-    @Column(name="CarType", length = 5, nullable = false)
-    private String type;
-
     @Column(name="PriceperDay", length = 10,nullable = false)
     private Double priceperday;
 
@@ -48,5 +45,12 @@ public class CarEntity {
     @OneToMany(mappedBy = "carEntity", targetEntity = RentEntity.class)
     private List<RentEntity> rentEntities;
 
+    public String getUpdate() {
+        return null;
+    }
+
+    public String getDelete() {
+        return null;
+    }
 }
 

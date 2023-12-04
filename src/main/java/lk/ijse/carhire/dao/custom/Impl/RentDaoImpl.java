@@ -27,7 +27,7 @@ public class RentDaoImpl implements RentDao {
     }
 
     @Override
-    public RentEntity get(String s) throws Exception {
+    public RentEntity get(int s) throws Exception {
         return null;
     }
 

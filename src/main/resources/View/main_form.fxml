@@ -13,7 +13,8 @@
 
 <AnchorPane fx:id="rootPane" prefHeight="794.0" prefWidth="1089.0" style="-fx-background-color: #c7ecee;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.carhire.controller.MainFormController">
    <children>
-      <Pane fx:id="dashboard" layoutY="-2.0" prefHeight="800.0" prefWidth="1091.0">
+
+      <Pane fx:id="dashboard" prefHeight="800.0" prefWidth="1091.0">
          <children>
             <Pane layoutX="14.0" layoutY="14.0" prefHeight="127.0" prefWidth="1065.0" style="-fx-background-color: 27005D;">
                <children>
@@ -78,6 +79,24 @@
                   <ImageView fitHeight="81.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@Images/icon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="216.0" layoutY="374.0" mnemonicParsing="false" onAction="#cateBtnClick" prefHeight="181.0" prefWidth="323.0" style="-fx-background-color: #4834d4;" text="Category" textFill="#f5f2f2">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <Glow />
+               </effect>
+               <font>
+                  <Font size="39.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="56.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Images/Untitled design (13).png" />
                      </image>
                   </ImageView>
                </graphic>

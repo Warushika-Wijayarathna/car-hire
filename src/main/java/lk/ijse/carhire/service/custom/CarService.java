@@ -9,6 +9,6 @@ public interface CarService extends SuperService {
     String addCar(CarDto carDto) throws Exception;
     String updateCar(CarDto carDto) throws Exception;
     String deleteCar(String id) throws Exception;
-    CarDto getCar(String id) throws Exception;
+    CarDto getCar(int id) throws Exception;
     List<CarDto> getAllCar()throws Exception;
 }

@@ -51,21 +51,23 @@
       <TextField fx:id="custAddressText" layoutX="277.0" layoutY="297.0" prefHeight="34.0" prefWidth="344.0" />
       <Label fx:id="NICLabel" layoutX="58.0" layoutY="331.0" prefHeight="34.0" prefWidth="219.0" text="Customer NIC" />
       <TextField fx:id="nicText" layoutX="277.0" layoutY="331.0" prefHeight="34.0" prefWidth="181.0" />
-      <Label fx:id="NICLabel1" layoutX="58.0" layoutY="365.0" prefHeight="34.0" prefWidth="219.0" text="Customer Mobile No." />
+      <Label fx:id="MobileLabel" layoutX="58.0" layoutY="365.0" prefHeight="34.0" prefWidth="219.0" text="Customer Mobile No." />
       <TextField fx:id="mobileNoText" layoutX="277.0" layoutY="365.0" prefHeight="34.0" prefWidth="181.0" />
-      <TableView fx:id="customerTable" layoutX="48.0" layoutY="409.0" prefHeight="317.0" prefWidth="997.0">
-      <columns>
-         <TableColumn fx:id="colId" text="Id" />
-         <TableColumn fx:id="colAddress" text="Name" />
-         <TableColumn fx:id="colMobile" prefWidth="200.0" text="Address" />
-         <TableColumn fx:id="colName" prefWidth="189.0" text="NIC" />
-         <TableColumn fx:id="colNic" prefWidth="193.0" text="Mobile" />
-         <TableColumn fx:id="colUpdate" prefWidth="110.0" text="Update" />
-         <TableColumn fx:id="colDelete" prefWidth="144.0" text="Delete" />
-      </columns>
-   </TableView>
-
-      <Button fx:id="saveButton" layoutX="906.0" layoutY="734.0" mnemonicParsing="false" onAction="#saveCustomer" prefHeight="52.0" prefWidth="117.0" style="-fx-background-color: #7ed6df;" text="Save">
+      <Label fx:id="emailLabel" layoutX="58.0" layoutY="399.0" prefHeight="34.0" prefWidth="219.0" text="Customer Email" />
+      <TextField fx:id="emailText" layoutX="277.0" layoutY="399.0" prefHeight="34.0" prefWidth="181.0" />
+      <TableView fx:id="tblCustomer" layoutX="25.0" layoutY="449.0" onMouseClicked="#onMouseClick" prefHeight="285.0" prefWidth="1042.0">
+        <columns>
+          <TableColumn fx:id="colId" prefWidth="75.0" text="Id" />
+          <TableColumn fx:id="colName" prefWidth="97.0" text="Name" />
+           <TableColumn fx:id="colAddress" prefWidth="192.0" text="Address" />
+           <TableColumn fx:id="colMobile" prefWidth="150.0" text="Mobile No" />
+           <TableColumn fx:id="colNic" prefWidth="166.0" text="NIC" />
+           <TableColumn fx:id="colEmail" prefWidth="182.0" text="Email" />
+           <TableColumn fx:id="colUpdate" minWidth="3.0" text="Update" />
+           <TableColumn fx:id="colDelete" prefWidth="78.0" text="Delete" />
+        </columns>
+      </TableView>
+      <Button fx:id="customerBtnClick" layoutX="923.0" layoutY="740.0" mnemonicParsing="false" onAction="#saveCustomer" prefHeight="52.0" prefWidth="117.0" style="-fx-background-color: #7ed6df;" text="Save">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

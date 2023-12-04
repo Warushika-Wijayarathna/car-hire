@@ -20,9 +20,7 @@ public class RentServiceImpl implements RentService {
             RentEntity entity = new RentEntity();
 
             entity.setId(rentDto.getId());
-            entity.setCarId(rentDto.getCarId());
             entity.setAvailability(rentDto.isAvailability());
-            entity.setCustomerId(rentDto.getCustomerId());
             entity.setFromDate(rentDto.getFromDate());
             entity.setToDate(rentDto.getToDate());
             entity.setPerDayRent(rentDto.getPerDayRent());
@@ -50,9 +48,7 @@ public class RentServiceImpl implements RentService {
             RentEntity entity = new RentEntity();
 
             entity.setId(rentDto.getId());
-            entity.setCarId(rentDto.getCarId());
             entity.setAvailability(rentDto.isAvailability());
-            entity.setCustomerId(rentDto.getCustomerId());
             entity.setFromDate(rentDto.getFromDate());
             entity.setToDate(rentDto.getToDate());
             entity.setPerDayRent(rentDto.getPerDayRent());
@@ -103,13 +99,11 @@ public class RentServiceImpl implements RentService {
     @Override
     public RentDto getRent(String id) throws Exception {
         try {
-            RentEntity entity = rentDao.get(id);
+            RentEntity entity = rentDao.get(Integer.parseInt(id));
 
             RentDto rentDto = new RentDto();
             rentDto.setId(entity.getId());
-            rentDto.setCarId(entity.getCarId());
             rentDto.setAvailability(entity.isAvailability());
-            rentDto.setCustomerId(entity.getCustomerId());
             rentDto.setFromDate(entity.getFromDate());
             rentDto.setToDate(entity.getToDate());
             rentDto.setPerDayRent(entity.getPerDayRent());

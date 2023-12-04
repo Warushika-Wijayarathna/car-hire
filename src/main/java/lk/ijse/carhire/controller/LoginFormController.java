@@ -39,5 +39,6 @@ public class LoginFormController {
         primaryStage.setTitle("Dashboard");
         primaryStage.centerOnScreen();
         primaryStage.setScene(scene);
+
     }
 }

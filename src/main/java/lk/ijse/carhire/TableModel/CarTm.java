@@ -1,16 +1,14 @@
-package lk.ijse.carhire.dto;
+package lk.ijse.carhire.TableModel;
 
 import lk.ijse.carhire.entity.CarCategoryEntity;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
-public class CarDto {
+@Data
+public class CarTm {
     private int id;
     private String brand;
     private String model;
@@ -18,6 +16,6 @@ public class CarDto {
     private Double priceperday;
     private int year;
     private CarCategoryEntity carCategoryEntity;
-    private String Update;
-    private String Delete;
+    private String update;
+    private String delete;
 }

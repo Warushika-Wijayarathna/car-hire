@@ -18,9 +18,9 @@ public class SessionFactoryConfiguration {
     private SessionFactoryConfiguration() {
         Configuration configuration = new Configuration().configure()
                 .addAnnotatedClass(CustomerEntity.class)
-                .addAnnotatedClass(RentEntity.class)
                 .addAnnotatedClass(CarEntity.class)
-                .addAnnotatedClass(CarCategoryEntity.class);
+                .addAnnotatedClass(CarCategoryEntity.class)
+                .addAnnotatedClass(RentEntity.class);
 
 
         sessionFactory = configuration.buildSessionFactory();

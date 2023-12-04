@@ -31,6 +31,8 @@ public class CustomerEntity {
     private String nic;
     @Column(name="MobileNo", length = 10, nullable = false)
     private int mobile;
+    @Column(name="Email", length = 225)
+    private String email;
 
     @ToString.Exclude
     @OneToMany(mappedBy = "customerEntity", targetEntity = RentEntity.class)

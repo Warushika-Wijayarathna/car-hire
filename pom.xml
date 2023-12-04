@@ -74,11 +74,17 @@
                 <version>8.0.33</version> <!-- Use the latest version for your MySQL server -->
             </dependency>
         <!-- Maven -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>1.18.30</version>
+                <scope>provided</scope>
+            </dependency>
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.22</version> <!-- Use the latest version available -->
-            <scope>provided</scope>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations</artifactId>
+            <version>RELEASE</version>
+            <scope>compile</scope>
         </dependency>
 
     </dependencies>

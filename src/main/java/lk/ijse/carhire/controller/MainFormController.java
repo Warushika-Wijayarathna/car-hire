@@ -41,5 +41,28 @@ public class MainFormController {
     }
 
     public void rentBtnClick(ActionEvent actionEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/rent_form.fxml"));
+            Pane categoryForm= loader.load();
+
+
+            dashboard.getChildren().clear();
+            dashboard.getChildren().add(categoryForm);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void cateBtnClick(ActionEvent actionEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/category_form.fxml"));
+            Pane categoryForm= loader.load();
+
+
+            dashboard.getChildren().clear();
+            dashboard.getChildren().add(categoryForm);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

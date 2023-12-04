@@ -11,7 +11,7 @@ import java.util.List;
 public interface CarCategoryService extends SuperService {
     String addCarCategory(CarCategoryDto carCategoryDto) throws Exception;
     String updateCarCategory(CarCategoryDto carCategoryDto) throws Exception;
-    String deleteCarCategory(String id) throws Exception;
+    String deleteCarCategory(int id) throws Exception;
     CarCategoryDto getCarCategory(String id) throws Exception;
     List<CarCategoryDto> getAllCarCategory() throws Exception;
 }
