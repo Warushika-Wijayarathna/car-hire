@@ -46,6 +46,19 @@ public class RentFromController {
     public Label getBalanceLabel;
     public Button carSearchButton;
     public Button customerSearchBotton;
+    public TextField amountText;
+    public TableColumn colRent;
+    public TableColumn colCar;
+    public TableColumn colCust;
+    public TableColumn colFrom;
+    public TableColumn colTo;
+    public TableColumn colAdvance;
+    public TableColumn colDeposit;
+    public TableColumn colAmount;
+    public TableColumn colTotal;
+    public TableColumn colBalance;
+    public TableColumn colReturn;
+    public TableColumn colUpdate;
     @FXML
     private Pane rentForm;
 
@@ -97,4 +110,32 @@ public class RentFromController {
     }
 
 
+    public void returnCheck(ActionEvent actionEvent) {
+        CheckBox checkBox = (CheckBox) actionEvent.getSource();
+        boolean isReturned = checkBox.isSelected();
+
+        int rentId = Integer.parseInt(rentText.getId());
+
+        rentService.updateReturnStatus(rentId, isReturned);
+    }
+
+    public void processBtnClick(ActionEvent actionEvent) {
+        String carId = carText.getText();
+        double rentCost = rentService.rentCost(Integer.parseInt(carId));
+
+        double advance = Double.parseDouble(advanceText.getText());
+        double refund = Double.parseDouble(refundText.getText());
+
+        double total = rentCost+advance+refund;
+
+        totalLabel.setText(String.valueOf("Rs."+total));
+
+        double amount = Double.parseDouble(amountText.getText());
+        double balance = amount-total;
+
+        balanceLabel.setText(String.valueOf("Rs."+balance));
+    }
+
+    public void rentBtnClick(ActionEvent actionEvent) {
+    }
 }

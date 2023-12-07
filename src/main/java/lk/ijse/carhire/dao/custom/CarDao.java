@@ -4,5 +4,4 @@ import lk.ijse.carhire.dao.CrudDao;
 import lk.ijse.carhire.entity.CarEntity;
 
 public interface CarDao extends CrudDao<CarEntity,Integer> {
-
 }

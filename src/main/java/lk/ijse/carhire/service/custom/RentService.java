@@ -12,4 +12,7 @@ public interface RentService extends SuperService {
     String deleteRent(String id) throws Exception;
     RentDto getRent(String id) throws Exception;
     List<RentDto> getAllRent()throws Exception;
+
+    void updateReturnStatus(int rentId, boolean isReturned);
+    double rentCost(int carId);
 }

@@ -82,8 +82,8 @@ public class CarFormController {
     private void initialize() throws Exception {
         System.out.println("Car form just loaded!");
         List<CarDto> carDtos = carService.getAllCar();
-        setCellValueFactory();
         setCar(carDtos);
+        setCellValueFactory();
     }
 
     private void setCar(List<CarDto> carDtos) {

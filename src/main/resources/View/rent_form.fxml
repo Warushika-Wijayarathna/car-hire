@@ -42,13 +42,23 @@
       <TextField fx:id="fromText" layoutX="288.0" layoutY="321.0" prefHeight="34.0" prefWidth="181.0" />
       <Label fx:id="toLabel" layoutX="69.0" layoutY="352.0" prefHeight="34.0" prefWidth="219.0" text="To Date" />
       <TextField fx:id="toText" layoutX="288.0" layoutY="354.0" prefHeight="34.0" prefWidth="181.0" />
-      <TableView fx:id="carTable" layoutX="49.0" layoutY="521.0" prefHeight="206.0" prefWidth="996.0">
+      <TableView fx:id="carTable" layoutX="6.0" layoutY="521.0" prefHeight="206.0" prefWidth="1077.0">
          <columns>
-            <TableColumn prefWidth="75.0" text="C1" />
-            <TableColumn prefWidth="75.0" text="C2" />
+            <TableColumn fx:id="colRent" prefWidth="75.0" text="Rent Id" />
+            <TableColumn fx:id="colCar" prefWidth="75.0" text="Car Id" />
+            <TableColumn fx:id="colCust" prefWidth="60.0" text="Cust Id" />
+            <TableColumn fx:id="colFrom" prefWidth="95.0" text="From" />
+            <TableColumn fx:id="colTo" prefWidth="75.0" text="To" />
+            <TableColumn fx:id="colAdvance" prefWidth="120.0" text="Advance" />
+            <TableColumn fx:id="colDeposit" prefWidth="125.0" text="Deposit" />
+            <TableColumn fx:id="colAmount" prefWidth="75.0" text="Amount" />
+            <TableColumn fx:id="colTotal" prefWidth="101.0" text="Total" />
+            <TableColumn fx:id="colBalance" prefWidth="97.0" text="Balance" />
+            <TableColumn fx:id="colReturn" prefWidth="95.0" text="isReturned" />
+            <TableColumn fx:id="colUpdate" prefWidth="83.0" text="Update" />
          </columns>
       </TableView>
-      <Button layoutX="922.0" layoutY="734.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="117.0" style="-fx-background-color: #7ed6df;" text="Save">
+      <Button fx:id="rentButton" layoutX="922.0" layoutY="734.0" mnemonicParsing="false" onAction="#rentBtnClick" prefHeight="52.0" prefWidth="117.0" style="-fx-background-color: #7ed6df;" text="Rent">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -69,13 +79,13 @@
       <Label fx:id="refundLabel" layoutX="69.0" layoutY="442.0" prefHeight="34.0" prefWidth="219.0" text="Refundable deposit" />
       <TextField fx:id="refundText" layoutX="288.0" layoutY="442.0" prefHeight="34.0" prefWidth="181.0" />
       <Label fx:id="returnLabel" layoutX="503.0" layoutY="476.0" prefHeight="34.0" prefWidth="219.0" text="isReturned" />
-      <CheckBox fx:id="returnCheck" layoutX="722.0" layoutY="479.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="20.0" />
+      <CheckBox fx:id="returnCheck" layoutX="722.0" layoutY="479.0" mnemonicParsing="false" onAction="#returnCheck" prefHeight="28.0" prefWidth="20.0" />
       <Label fx:id="custLabel" layoutX="69.0" layoutY="289.0" prefHeight="34.0" prefWidth="219.0" text="Customer Id" />
       <TextField fx:id="customerText" layoutX="288.0" layoutY="289.0" prefHeight="34.0" prefWidth="181.0" />
       <Label fx:id="balanceLabel" layoutX="503.0" layoutY="442.0" prefHeight="34.0" prefWidth="219.0" text="Balance" />
       <Label fx:id="searchCarLabel" layoutX="518.0" layoutY="255.0" prefHeight="34.0" prefWidth="181.0" />
       <Label fx:id="searchCustomerLabel" layoutX="519.0" layoutY="289.0" prefHeight="34.0" prefWidth="181.0" />
-      <Label fx:id="getTotalLabel" layoutX="722.0" layoutY="408.0" prefHeight="34.0" prefWidth="181.0" />
+      <Label fx:id="getTotalLabel" layoutX="698.0" layoutY="408.0" prefHeight="34.0" prefWidth="181.0" />
       <Label fx:id="getBalanceLabel" layoutX="722.0" layoutY="445.0" prefHeight="34.0" prefWidth="181.0" />
       <Button fx:id="carSearchButton" layoutX="472.0" layoutY="260.0" mnemonicParsing="false" onAction="#carSearchBtnClick" prefHeight="24.0" prefWidth="27.0">
          <graphic>
@@ -95,5 +105,8 @@
             </ImageView>
          </graphic>
       </Button>
+      <Button fx:id="processButton" layoutX="888.0" layoutY="413.0" mnemonicParsing="false" onAction="#processBtnClick" text="Process" />
+      <Label fx:id="amountLabel" layoutX="69.0" layoutY="476.0" prefHeight="34.0" prefWidth="219.0" text="Amount" />
+      <TextField fx:id="amountText" layoutX="288.0" layoutY="476.0" prefHeight="34.0" prefWidth="181.0" />
    </children>
 </Pane>

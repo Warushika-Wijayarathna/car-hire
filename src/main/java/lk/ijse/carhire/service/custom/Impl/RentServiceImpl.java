@@ -126,5 +126,23 @@ public class RentServiceImpl implements RentService {
         return null;
     }
 
+    @Override
+    public void updateReturnStatus(int rentId, boolean isReturned) {
+        rentDao.updateReturnStatus(rentId, isReturned);
+    }
+
+    @Override
+    public double rentCost(int carId) {
+        try {
+            double rentCost = rentDao.rentCost(carId);
+
+            return rentCost;
+        } catch (Exception e) {
+            e.printStackTrace();
+            // Handle any exceptions or log them
+            return 0.0; // or throw an exception depending on your application's error handling strategy
+        }
+    }
+
 }
 
